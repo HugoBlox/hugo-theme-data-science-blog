@@ -12,13 +12,16 @@ imports:
 mounts:
   - source: hugo-blox/blox/community
     target: layouts/_partials/blox/community/
-    includeFiles: '**.html'
+    files:
+      - '**.html'
   - source: hugo-blox/blox/all-access
     target: layouts/_partials/blox/
-    includeFiles: '**.html'
+    files:
+      - '**.html'
   - source: hugo-blox/blox
     target: assets/dist/community/blox/
-    includeFiles: '**.css'
+    files:
+      - '**.css'
   - source: layouts
     target: layouts
   - source: assets
