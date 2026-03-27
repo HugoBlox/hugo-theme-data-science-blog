@@ -59,10 +59,8 @@ hugoblox:
   # Font and text sizing
   # ────────────────────────────────────────────────────────────────────────────
   typography:
-    # Font: 'sans' (Inter), 'serif' (Roboto Slab), or 'native' (system fonts)
-    font: "sans"
-    # Size: 'sm', 'md', 'lg', or 'xl' (affects base font size and scale)
-    size: "md"
+    # Theme pack: name from data/fonts/
+    pack: "humanist"
 
   # ────────────────────────────────────────────────────────────────────────────
   # LAYOUT
