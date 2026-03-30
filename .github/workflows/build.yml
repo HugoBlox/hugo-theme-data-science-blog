@@ -34,7 +34,7 @@ jobs:
       artifact-id: ${{ steps.upload.outputs.artifact-id }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         # Fetch history for Hugo's .GitInfo and .Lastmod
         fetch-depth: 0
@@ -92,7 +92,7 @@ jobs:
         extended: true
 
     # Cache dependencies (Go modules, node_modules) - stable, rarely changes
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       with:
         path: |
           /tmp/hugo_cache_runner/
@@ -104,7 +104,7 @@ jobs:
           ${{ runner.os }}-hugo-deps-
 
     # Cache Hugo resources (processed images, CSS) - invalidates only when assets/config change
-    - uses: actions/cache@v4
+    - uses: actions/cache@v5
       with:
         path: resources/
         key: ${{ runner.os }}-hugo-resources-${{ hashFiles('assets/**/*', 'config/**/*',
@@ -112,13 +112,17 @@ jobs:
         restore-keys: |
           ${{ runner.os }}-hugo-resources-
 
+    - name: Setup Pages
+      id: pages
+      uses: actions/configure-pages@v5
+
     - name: Build with Hugo
       env:
         HUGO_ENVIRONMENT: production
         HUGO_BLOX_LICENSE: ${{ secrets.HUGO_BLOX_LICENSE }}
       run: |
         echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
-        hugo --minify
+        hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
 
     - name: Generate Pagefind search index (if applicable)
       run: |

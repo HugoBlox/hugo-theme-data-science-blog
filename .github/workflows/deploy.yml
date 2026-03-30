@@ -26,7 +26,7 @@ jobs:
       deploy-host: ${{ steps.check.outputs.host }}
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
       with:
         sparse-checkout: hugoblox.yaml
         sparse-checkout-cone-mode: false
