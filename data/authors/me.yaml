@@ -28,5 +28,5 @@ links:
     url: uploads/resume.pdf
     label: Download my resume
   - icon: rss
-    url: ./post/index.xml
+    url: ./blog/index.xml
     label: Subscribe to my blog via RSS feed
