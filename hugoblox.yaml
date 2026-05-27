@@ -1,5 +1,5 @@
 build:
-  hugo_version: '0.161.1'
+  hugo_version: '0.162.0'
 deploy:
   # Deployment target: github-pages, netlify, vercel, cloudflare, or none
   host: 'github-pages'
